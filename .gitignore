@@ -1,1 +1,4 @@
 node_modules/
+assets-src/
+.sass-cache/
+npm-debug.log

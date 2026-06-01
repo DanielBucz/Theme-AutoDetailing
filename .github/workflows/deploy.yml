@@ -1,0 +1,44 @@
+name: Deploy Theme to Server
+
+on:
+  push:
+    branches:
+      - main # Skrypt uruchomi się za każdym razem, gdy zrobisz 'git push' do gałęzi main
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      # 1. Pobranie kodu z repozytorium
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # 2. Instalacja Node.js i kompilacja SASS (Krok 2)
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Install dependencies & Compile CSS
+        run: |
+          npm install
+          npm run build # To uruchomi skrypt minifikacji z Twojego package.json
+
+      # 3. Wysyłka gotowego motywu na serwer hostingowy
+      - name: FTP Deploy
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          # Ścieżka docelowa na Twoim hostingu (np. wp-content/themes/twoj-motyw)
+          server-dir: domains/buczekpoleruje.pl/public_html/wp-content/themes/buczek-theme/
+          # Wykluczamy niepotrzebne pliki dev z wysyłki na serwer
+          exclude: |
+            **/.git*
+            **/.git*/**
+            **/node_modules/**
+            **/assets-src/**
+            package.json
+            package-lock.json

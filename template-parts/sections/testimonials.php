@@ -42,3 +42,33 @@ $testimonials = [
         </div>
     </div>
 </section>
+
+<!-- <?php
+// Wywołanie zoptymalizowanego tagu szablonu z cache
+$opinie_query = buczek_get_cached_opinie();
+
+if ($opinie_query->have_posts()) : ?>
+<section class="testimonials-section">
+    <div class="container">
+        <div class="testimonials-slider">
+            <?php while ($opinie_query->have_posts()) : $opinie_query->the_post(); ?>
+            <div class="testimonial-item">
+                <h3><?php the_title(); ?></h3>
+                <div class="testimonial-content">
+                    <?php the_content(); ?>
+                </div>
+                <?php 
+                        // Przykład pobierania pola ACF (np. ocena)
+                        $rating = get_field('ocena_gwiazdkowa'); 
+                        if ($rating) : ?>
+                <div class="stars"><?php echo str_repeat('★', intval($rating)); ?></div>
+                <?php endif; ?>
+            </div>
+            <?php endwhile; ?>
+        </div>
+    </div>
+</section>
+<?php 
+    wp_reset_postdata(); // Bezwarunkowy reset globalnego obiektu $post
+endif; 
+?> -->

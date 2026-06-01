@@ -1,0 +1,25 @@
+.blog-archive {
+  padding: 80px 0;
+
+  &__header {
+    text-align: center;
+    margin-bottom: 40px;
+  }
+
+  &__title {
+    font-size: 42px;
+    font-weight: 800;
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+
+  @include mobile {
+    &__grid {
+      grid-template-columns: 1fr;
+    }
+  }
+}

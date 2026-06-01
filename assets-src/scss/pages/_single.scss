@@ -1,0 +1,49 @@
+.single-post {
+padding: 80px 0;
+
+&__article {
+max-width: 800px;
+margin: 0 auto;
+}
+
+&__title {
+font-size: clamp(28px, 4vw, 44px);
+font-weight: 800;
+margin-bottom: 10px;
+}
+
+&__meta {
+font-size: 14px;
+color: rgba(#fff, 0.6);
+margin-bottom: 20px;
+}
+
+&__image img {
+width: 100%;
+border-radius: 16px;
+margin-bottom: 24px;
+}
+
+&__content {
+font-size: 18px;
+line-height: 1.7;
+color: rgba(#fff, 0.85);
+
+p {
+margin-bottom: 16px;
+}
+
+h2 {
+margin-top: 30px;
+font-size: 26px;
+}
+}
+
+@include mobile {
+padding: 60px 0;
+
+&__content {
+font-size: 16px;
+}
+}
+}

@@ -1,0 +1,55 @@
+.testimonials {
+  padding: 88px 0;
+  background:
+    linear-gradient(180deg, rgba(#fff, 0.01), rgba(#fff, 0)),
+    #101010;
+
+  &__header {
+    max-width: 760px;
+    margin: 0 auto 40px;
+    text-align: center;
+  }
+
+  &__eyebrow {
+    margin: 0 0 12px;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: $color-accent;
+  }
+
+  &__title {
+    margin: 0 0 16px;
+    font-size: clamp(30px, 4vw, 48px);
+    line-height: 1.05;
+    font-weight: 800;
+    color: $color-text;
+    text-wrap: balance;
+  }
+
+  &__text {
+    margin: 0;
+    font-size: 18px;
+    line-height: 1.7;
+    color: rgba($color-text, 0.82);
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 20px;
+  }
+
+  @include mobile {
+    padding: 64px 0;
+
+    &__text {
+      font-size: 16px;
+    }
+
+    &__grid {
+      grid-template-columns: 1fr;
+    }
+  }
+}

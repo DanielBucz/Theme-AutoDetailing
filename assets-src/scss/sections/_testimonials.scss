@@ -1,3 +1,6 @@
+@use "../base/mixins";
+@use "../base/variables";
+
 .testimonials {
   padding: 88px 0;
   background:
@@ -16,7 +19,7 @@
     font-weight: 700;
     letter-spacing: 0.08em;
     text-transform: uppercase;
-    color: $color-accent;
+    color: variables.$color-accent;
   }
 
   &__title {
@@ -24,7 +27,7 @@
     font-size: clamp(30px, 4vw, 48px);
     line-height: 1.05;
     font-weight: 800;
-    color: $color-text;
+    color: variables.$color-text;
     text-wrap: balance;
   }
 
@@ -32,7 +35,7 @@
     margin: 0;
     font-size: 18px;
     line-height: 1.7;
-    color: rgba($color-text, 0.82);
+    color: rgba(variables.$color-text, 0.82);
   }
 
   &__grid {
@@ -41,7 +44,7 @@
     gap: 20px;
   }
 
-  @include mobile {
+  @include mixins.mobile {
     padding: 64px 0;
 
     &__text {

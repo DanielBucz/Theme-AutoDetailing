@@ -2,7 +2,19 @@
   max-width: 980px;
   margin: 0 auto;
   user-select: none;
-
+  aspect-ratio: 16 / 9; // Wymusza proporcje panoramy (typowe dla zdjęć aut), zapobiegając tąpnięciu layoutu
+  background-color: #1a1a1a; // Ciemny boks widoczny zanim załadują się zdjęcia i JS
+  overflow: hidden;
+  margin: 2rem 0;
+  img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    pointer-events: none; // Zapobiega domyślnemu przeciąganiu obrazka przez użytkownika
+  }
   &__media {
     position: relative;
     overflow: hidden;
@@ -57,7 +69,7 @@
 
     &::before,
     &::after {
-      content: '';
+      content: "";
       position: absolute;
       top: 50%;
       width: 10px;
@@ -178,4 +190,4 @@
       height: 46px;
     }
   }
-}   
+}

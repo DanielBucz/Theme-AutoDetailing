@@ -539,11 +539,13 @@ body.menu-open {
 .hero {
   position: relative;
   overflow: hidden;
-  min-height: 88svh;
   display: flex;
   align-items: center;
+  justify-content: center;
   color: #ffffff;
   background: #0f0f0f;
+  min-height: 80vh;
+  background-color: #000;
 }
 .hero-container {
   width: min(1400px, 100% - 32px);

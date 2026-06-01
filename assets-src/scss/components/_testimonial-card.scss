@@ -1,3 +1,6 @@
+@use "../base/mixins";
+@use "../base/variables";
+
 .testimonial-card {
   height: 100%;
   padding: 28px 24px;
@@ -12,24 +15,24 @@
     margin-bottom: 16px;
     font-size: 18px;
     letter-spacing: 0.08em;
-    color: $color-accent;
+    color: variables.$color-accent;
   }
 
   &__text {
     margin: 0;
     font-size: 17px;
     line-height: 1.75;
-    color: rgba($color-text, 0.86);
+    color: rgba(variables.$color-text, 0.86);
   }
 
   &__name {
     margin: 20px 0 0;
     font-size: 15px;
     font-weight: 800;
-    color: $color-text;
+    color: variables.$color-text;
   }
 
-  @include mobile {
+  @include mixins.mobile {
     padding: 22px 18px;
 
     &__text {

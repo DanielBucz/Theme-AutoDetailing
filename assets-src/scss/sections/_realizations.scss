@@ -1,8 +1,11 @@
+@use "../base/mixins";
+@use "../base/variables";
+
 .realizations {
   padding: 88px 0;
   background:
-    radial-gradient(circle at top, rgba($color-accent, 0.08), transparent 28%),
-    $color-bg;
+    radial-gradient(circle at top, rgba(variables.$color-accent, 0.08), transparent 28%),
+    variables.$color-bg;
 
   &__container {
     position: relative;
@@ -20,7 +23,7 @@
     font-weight: 700;
     letter-spacing: 0.08em;
     text-transform: uppercase;
-    color: $color-accent;
+    color: variables.$color-accent;
   }
 
   &__title {
@@ -28,7 +31,7 @@
     font-size: clamp(30px, 4vw, 52px);
     line-height: 1.05;
     font-weight: 800;
-    color: $color-text;
+    color: variables.$color-text;
     text-wrap: balance;
   }
 
@@ -36,7 +39,7 @@
     margin: 0;
     font-size: 18px;
     line-height: 1.7;
-    color: rgba($color-text, 0.82);
+    color: rgba(variables.$color-text, 0.82);
   }
 
   &__cta {
@@ -44,7 +47,7 @@
     margin: 40px auto 0;
     padding: 32px;
     text-align: center;
-    border: 1px solid rgba($color-text, 0.08);
+    border: 1px solid rgba(variables.$color-text, 0.08);
     border-radius: 24px;
     background: rgba(255, 255, 255, 0.03);
     backdrop-filter: blur(10px);
@@ -55,14 +58,14 @@
     font-size: clamp(24px, 3vw, 36px);
     line-height: 1.1;
     font-weight: 800;
-    color: $color-accent;
+    color: variables.$color-accent;
   }
 
   &__cta-text {
     margin: 0;
     font-size: 17px;
     line-height: 1.7;
-    color: rgba($color-text, 0.84);
+    color: rgba(variables.$color-text, 0.84);
   }
   &__cta-actions {
     display: flex;
@@ -84,7 +87,7 @@
     max-width: 980px;
     margin: 32px auto 0;
     padding: 20px;
-    border: 1px solid rgba($color-text, 0.08);
+    border: 1px solid rgba(variables.$color-text, 0.08);
     border-radius: 24px;
     background: rgba(255, 255, 255, 0.03);
     backdrop-filter: blur(10px);
@@ -116,7 +119,7 @@
     font-weight: 700;
     letter-spacing: 0.08em;
     text-transform: uppercase;
-    color: $color-accent;
+    color: variables.$color-accent;
   }
 
   &__featured-title {
@@ -124,7 +127,7 @@
     font-size: clamp(24px, 2.3vw, 34px);
     line-height: 1.08;
     font-weight: 800;
-    color: $color-text;
+    color: variables.$color-text;
     text-wrap: balance;
   }
 
@@ -132,7 +135,7 @@
     margin: 0 0 22px;
     font-size: 16px;
     line-height: 1.65;
-    color: rgba($color-text, 0.82);
+    color: rgba(variables.$color-text, 0.82);
   }
 
   &__featured-button {
@@ -140,7 +143,7 @@
     justify-content: center;
   }
 
-  @include mobile {
+  @include mixins.mobile {
     padding: 64px 0;
 
     &__text {

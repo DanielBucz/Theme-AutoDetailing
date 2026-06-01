@@ -1,11 +1,17 @@
+@use "../base/mixins";
+@use "../base/variables";
+
 .hero {
   position: relative;
   overflow: hidden;
-  min-height: 88svh;
+  // min-height: 88svh;
   display: flex;
   align-items: center;
-  color: $color-text;
-  background: $color-bg;
+  justify-content: center;
+  color: variables.$color-text;
+  background: variables.$color-bg;
+  min-height: 80vh;
+  background-color: #000; // Tymczasowe tło, nad którym zaraz załaduje się Twoja grafika
 
   &-container {
     width: min(1400px, calc(100% - 32px));
@@ -52,7 +58,7 @@
     font-weight: 700;
     letter-spacing: 0.08em;
     text-transform: uppercase;
-    color: $color-accent;
+    color: variables.$color-accent;
   }
 
   &__title {
@@ -67,14 +73,14 @@
     margin: 0 0 12px;
     font-size: clamp(20px, 3vw, 30px);
     font-weight: 700;
-    color: $color-accent;
+    color: variables.$color-accent;
   }
 
   &__text {
     margin: 0;
     font-size: 18px;
     line-height: 1.6;
-    color: rgba($color-text, 0.9);
+    color: rgba(variables.$color-text, 0.9);
   }
 
   &__actions {
@@ -89,7 +95,7 @@
     justify-content: center;
   }
 
-  @include mobile {
+  @include mixins.mobile {
     min-height: 70svh;
     // align-items: flex-end;
 

@@ -1,3 +1,6 @@
+@use "../base/mixins";
+@use "../base/variables";
+
 .realization-card {
   height: 100%;
   border: 1px solid rgba(#fff, 0.06);
@@ -11,7 +14,7 @@
 
   &:hover {
     transform: translateY(-4px);
-    border-color: rgba($color-accent, 0.28);
+    border-color: rgba(variables.$color-accent, 0.28);
   }
 
   &__link {
@@ -61,7 +64,7 @@
     }
 
     &--after {
-      background: $color-accent;
+      background: variables.$color-accent;
       color: #111;
     }
   }
@@ -75,17 +78,17 @@
     font-size: 24px;
     line-height: 1.15;
     font-weight: 800;
-    color: $color-text;
+    color: variables.$color-text;
   }
 
   &__text {
     margin: 0;
     font-size: 15px;
     line-height: 1.65;
-    color: rgba($color-text, 0.75);
+    color: rgba(variables.$color-text, 0.75);
   }
 
-  @include mobile {
+  @include mixins.mobile {
     border-radius: 18px;
 
     &__content {

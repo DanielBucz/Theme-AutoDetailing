@@ -1,26 +1,26 @@
-@import "base/variables";
-@import "base/mixins";
-@import "base/global";
+@use "base/variables";
+@use "base/mixins";
+@use "base/global";
 
-@import "layout/header";
+@use "layout/header";
 
-@import "components/button";
-@import "components/before-after";
+@use "components/button";
+@use "components/before-after";
 //@import 'components/before-after-slider';
-@import "components/sticky-cta";
-@import "components/testimonial-card";
-@import 'components/post-card';
-@import 'components/nav';
-@import 'components/mobile-menu';
-@import 'components/realization-card';
+@use "components/sticky-cta";
+@use "components/testimonial-card";
+@use 'components/post-card';
+@use 'components/nav';
+@use 'components/mobile-menu';
+@use 'components/realization-card';
 
-@import "sections/hero";
-@import "sections/realizations";
-@import "sections/services";
-@import "sections/contact";
-@import "sections/testimonials";
-@import 'sections/blog-preview';
+@use "sections/hero";
+@use "sections/realizations";
+@use "sections/services";
+@use "sections/contact";
+@use "sections/testimonials";
+@use 'sections/blog-preview';
 
-@import 'pages/single';
-@import 'pages/blog';
-@import 'pages/realizations-archive';
+@use 'pages/single';
+@use 'pages/blog';
+@use 'pages/realizations-archive';

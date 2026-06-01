@@ -1,7 +1,10 @@
+@use "../base/mixins";
+@use "../base/variables";
+
 .realizations-archive {
   padding: 88px 0;
   background:
-    radial-gradient(circle at top, rgba($color-accent, 0.07), transparent 26%),
+    radial-gradient(circle at top, rgba(variables.$color-accent, 0.07), transparent 26%),
     #0f0f0f;
 
   &__header {
@@ -16,7 +19,7 @@
     font-weight: 700;
     letter-spacing: 0.08em;
     text-transform: uppercase;
-    color: $color-accent;
+    color: variables.$color-accent;
   }
 
   &__title {
@@ -24,7 +27,7 @@
     font-size: clamp(34px, 5vw, 58px);
     line-height: 1.05;
     font-weight: 800;
-    color: $color-text;
+    color: variables.$color-text;
     text-wrap: balance;
   }
 
@@ -32,7 +35,7 @@
     margin: 0;
     font-size: 18px;
     line-height: 1.7;
-    color: rgba($color-text, 0.82);
+    color: rgba(variables.$color-text, 0.82);
   }
 
   &__grid {
@@ -52,12 +55,12 @@
 
     p {
       margin: 0;
-      color: rgba($color-text, 0.8);
+      color: rgba(variables.$color-text, 0.8);
       font-size: 17px;
     }
   }
 
-  @include mobile {
+  @include mixins.mobile {
     padding: 64px 0;
 
     &__text {

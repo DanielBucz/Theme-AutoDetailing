@@ -1,3 +1,6 @@
+@use "../base/mixins";
+@use "../base/variables";
+
 .services {
   padding: 80px 0;
   background: #0f0f0f;
@@ -36,11 +39,11 @@
 
     &:hover {
       transform: translateY(-6px);
-      border-color: rgba($color-accent, 0.6);
+      border-color: rgba(variables.$color-accent, 0.6);
       box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
     }
   }
-  @include mobile {
+  @include mixins.mobile {
     &__grid {
       grid-template-columns: 1fr;
     }

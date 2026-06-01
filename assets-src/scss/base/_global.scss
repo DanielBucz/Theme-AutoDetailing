@@ -1,3 +1,6 @@
+@use "mixins";
+@use "variables";
+
 *,
 *::before,
 *::after {
@@ -10,8 +13,8 @@ html {
 
 body {
   margin: 0;
-  background: $color-bg;
-  color: $color-text;
+  background: variables.$color-bg;
+  color: variables.$color-text;
   font-family: Inter, system-ui, sans-serif;
 }
 
@@ -27,7 +30,7 @@ img {
 section[id] {
   scroll-margin-top: 90px;
 }
-@include mobile {
+@include mixins.mobile {
   body {
     padding-bottom: 92px;
   }

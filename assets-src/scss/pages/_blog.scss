@@ -1,3 +1,5 @@
+@use "../base/mixins";
+
 .blog-archive {
   padding: 80px 0;
 
@@ -17,7 +19,7 @@
     gap: 20px;
   }
 
-  @include mobile {
+  @include mixins.mobile {
     &__grid {
       grid-template-columns: 1fr;
     }

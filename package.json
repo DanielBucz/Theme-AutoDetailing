@@ -2,7 +2,10 @@
   "name": "buczek-theme",
   "version": "1.0.0",
   "main": "index.js",
-   "scripts": {
+  "engines": {
+    "node": ">=24.0.0"
+  },
+  "scripts": {
     "dev": "sass --watch assets-src/scss/main.scss assets/css/main.css",
     "build": "sass --style=compressed --no-source-map assets-src/scss/main.scss assets/css/main.min.css"
   },

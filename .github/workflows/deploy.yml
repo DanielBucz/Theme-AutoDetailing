@@ -1,44 +1,55 @@
+# =============================================================================
+# GitHub Actions CI/CD Pipeline - buczekpoleruje.pl
+# Zoptymalizowany pod kątem standardów Node.js 24 (Wymagania rygorystyczne 2026)
+# =============================================================================
+
 name: Deploy Theme to Server
 
 on:
   push:
     branches:
-      - main # Skrypt uruchomi się za każdym razem, gdy zrobisz 'git push' do gałęzi main
+      - main
+
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: "true"
 
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
 
     steps:
-      # 1. Pobranie kodu z repozytorium
+      # 1. Pobranie kodu źródłowego z repozytorium
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      # 2. Instalacja Node.js i kompilacja SASS (Krok 2)
+      # 2. Inicjalizacja środowiska Node.js w wersji 24 (Zabezpieczenie przed deprecjacją v20)
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: "20"
+          node-version: "24"
+          cache: "npm"
 
+      # 3. Instalacja zależności i kompilacja produkcyjna assetów
       - name: Install dependencies & Compile CSS
         run: |
-          npm install
-          npm run build # To uruchomi skrypt minifikacji z Twojego package.json
+          npm ci
+          npm run build
 
-      # 3. Wysyłka gotowego motywu na serwer hostingowy
+      # 4. Wysyłka skompilowanego motywu na serwer produkcyjny z pominięciem długu dev
       - name: FTP Deploy
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
           server: ${{ secrets.FTP_SERVER }}
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
-          # Ścieżka docelowa na Twoim hostingu (np. wp-content/themes/twoj-motyw)
           server-dir: domains/buczekpoleruje.pl/public_html/wp-content/themes/buczek-theme/
-          # Wykluczamy niepotrzebne pliki dev z wysyłki na serwer
           exclude: |
             **/.git*
             **/.git*/**
+            **/.github/**
             **/node_modules/**
             **/assets-src/**
             package.json
             package-lock.json
+            README.md
+            .gitignore

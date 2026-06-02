@@ -1,9 +1,8 @@
 <?php
 /**
- * System Optymalizacji Wydajności - Zarządzanie Transients API
- * Lokalizacja: /inc/helpers.php
- * * Ten plik odpowiada za automatyczną inwalidację (czyszczenie) pamięci podręcznej
- * w momencie modyfikacji wpisów CPT (realizacje, usługi, opinie).
+ * System Optymalizacji Wydajności i Bezpieczeństwa - Rdzeń Logiki
+ * Ścieżka: wp-content/themes/theme-autodetailing/inc/helpers.php
+ * * Zgodność z WPCS, PHP 8.x, pełna automatyzacja Transients API oraz bezpieczny AJAX.
  */
 
 if (!defined('ABSPATH')) {
@@ -16,8 +15,7 @@ if (!defined('ABSPATH')) {
  *
  * @param string $post_type Typ wpisu, dla którego czyścimy cache.
  */
-function buczek_clear_cpt_transients($post_type) {
-    // Definiujemy mapę transientów powiązanych z konkretnymi typami wpisów
+function buczek_clear_cpt_transients(string $post_type): void {
     $transients_map = [
         'realizacje' => ['buczek_realizacje_home_query', 'buczek_realizacje_archive_query'],
         'uslugi'     => ['buczek_uslugi_menu_query', 'buczek_uslugi_home_query'],
@@ -32,39 +30,74 @@ function buczek_clear_cpt_transients($post_type) {
 }
 
 /**
- * Automatyczne czyszczenie transientów przy zapisie, edycji lub usuwaniu wpisów.
- * Obsługuje hook 'save_post', reagując tylko na specyficzne CPT.
- *
- * @param int $post_id ID modyfikowanego wpisu.
- * @param WP_Post $post Obiekt modyfikowanego wpisu.
- * @param bool $update Czy wpis jest aktualizowany (true) czy tworzony (false).
+ * Automatyczne czyszczenie transientów przy zapisie lub edycji wpisów.
  */
-function buczek_on_post_save_clear_cache($post_id, $post, $update) {
-    // Ignorujemy automatyczne zapisy szkiców (autosave)
-    if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) {
+add_action('save_post', function(int $post_id, WP_Post $post, bool $update): void {
+    if ((defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) || wp_is_post_revision($post_id)) {
         return;
     }
-
-    // Ignorujemy rewizje wpisów
-    if (wp_is_post_revision($post_id)) {
-        return;
-    }
-
-    // Wywołujemy czyszczenie transientów dla typu wpisu
     buczek_clear_cpt_transients($post->post_type);
-}
-add_action('save_post', 'buczek_on_post_save_clear_cache', 10, 3);
+}, 10, 3);
 
 /**
- * Dodatkowe zabezpieczenie: czyszczenie przy usuwaniu wpisu do kosza 
- * oraz przed trwałym usunięciem.
+ * Automatyczne czyszczenie transientów przy przenoszeniu do kosza i usuwaniu.
  */
-add_action('wp_trash_post', function($post_id) {
-    $post_type = get_post_type($post_id);
-    buczek_clear_cpt_transients($post_type);
+add_action('wp_trash_post', function(int $post_id): void {
+    buczek_clear_cpt_transients((string) get_post_type($post_id));
 });
 
-add_action('before_delete_post', function($post_id) {
-    $post_type = get_post_type($post_id);
-    buczek_clear_cpt_transients($post_type);
+add_action('before_delete_post', function(int $post_id): void {
+    buczek_clear_cpt_transients((string) get_post_type($post_id));
 });
+
+/**
+ * Natywna Obsługa Formularza Kontaktowego via AJAX
+ */
+function buczek_handle_contact_form(): void {
+    // 1. Weryfikacja bezpieczeństwa (Nonce)
+    if (!isset($_POST['security']) || !wp_verify_nonce($_POST['security'], 'buczek_contact_nonce')) {
+        wp_send_json_error(['message' => 'Błąd bezpieczeństwa. Odśwież stronę i spróbuj ponownie.']);
+    }
+
+    // 2. Honeypot - zabezpieczenie przed spam-botami
+    if (!empty($_POST['website_hp'])) {
+        wp_send_json_success(['message' => 'Wiadomość wysłana pomyślnie!']);
+    }
+
+    // 3. Walidacja i Sanityzacja pól
+    $name    = isset($_POST['client_name']) ? sanitize_text_field($_POST['client_name']) : '';
+    $email   = isset($_POST['client_email']) ? sanitize_email($_POST['client_email']) : '';
+    $phone   = isset($_POST['client_phone']) ? sanitize_text_field($_POST['client_phone']) : '';
+    $message = isset($_POST['client_message']) ? sanitize_textarea_field($_POST['client_message']) : '';
+
+    if (empty($name) || empty($email) || empty($message)) {
+        wp_send_json_error(['message' => 'Wypełnij wszystkie wymagane pola.']);
+    }
+
+    if (!is_email($email)) {
+        wp_send_json_error(['message' => 'Podaj poprawny adres e-mail.']);
+    }
+
+    // 4. Konstrukcja i wysyłka e-maila
+    $to      = get_option('admin_email');
+    $subject = 'Nowe zapytanie ofertowe ze strony: ' . get_bloginfo('name');
+    
+    $body  = "Otrzymałeś nową wiadomość z formularza kontaktowego:\n\n";
+    $body .= "Imię i nazwisko: $name\n";
+    $body .= "E-mail: $email\n";
+    $body .= "Telefon: " . (!empty($phone) ? $phone : 'Nie podano') . "\n\n";
+    $body .= "Treść wiadomości:\n$message\n";
+
+    $headers = [
+        'Content-Type: text/plain; charset=UTF-8',
+        'Reply-To: ' . $name . ' <' . $email . '>'
+    ];
+
+    if (wp_mail($to, $subject, $body, $headers)) {
+        wp_send_json_success(['message' => 'Dziękujemy! Twoja wiadomość została wysłana pomyślnie.']);
+    } else {
+        wp_send_json_error(['message' => 'Wystąpił błąd serwera. Spróbuj ponownie później.']);
+    }
+}
+add_action('wp_ajax_buczek_contact', 'buczek_handle_contact_form');
+add_action('wp_ajax_nopriv_buczek_contact', 'buczek_handle_contact_form');

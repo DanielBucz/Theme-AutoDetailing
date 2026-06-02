@@ -1072,6 +1072,123 @@ body.menu-open {
   }
 }
 
+.quote-calculator {
+  padding: 80px 0;
+  background: #0f0f0f;
+}
+.quote-calculator .container {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: 32px;
+  align-items: start;
+}
+.quote-calculator__content h2 {
+  font-size: 36px;
+  font-weight: 800;
+  margin: 0 0 16px;
+}
+.quote-calculator__content p {
+  color: rgba(255, 255, 255, 0.72);
+  line-height: 1.7;
+  margin: 0;
+}
+.quote-calculator .section-kicker {
+  color: #18A2EB;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 12px;
+}
+.quote-calculator__form {
+  display: grid;
+  gap: 20px;
+  background: #161616;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 16px;
+  padding: 30px;
+}
+.quote-calculator label, .quote-calculator__addons span {
+  display: grid;
+  gap: 14px;
+  font-size: 14px;
+  font-weight: 700;
+}
+.quote-calculator select {
+  width: 100%;
+  min-height: 52px;
+  padding: 0 16px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 12px;
+  background: #0f0f0f;
+  color: #ffffff;
+  font-size: 16px;
+  outline: none;
+}
+.quote-calculator select:focus {
+  border-color: rgba(24, 162, 235, 0.75);
+  box-shadow: 0 0 0 3px rgba(24, 162, 235, 0.12);
+}
+.quote-calculator__addons {
+  display: grid;
+  gap: 14px;
+  margin: 22px 0;
+}
+.quote-calculator__addons label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 14px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.03);
+  cursor: pointer;
+}
+.quote-calculator__addons input {
+  accent-color: #18A2EB;
+}
+.quote-calculator__result {
+  display: grid;
+  gap: 6px;
+  margin: 24px 0;
+  padding: 22px;
+  border-radius: 16px;
+  background: rgba(24, 162, 235, 0.1);
+  border: 1px solid rgba(24, 162, 235, 0.35);
+}
+.quote-calculator__result span {
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 14px;
+}
+.quote-calculator__result strong {
+  color: #18A2EB;
+  font-size: 30px;
+  font-weight: 800;
+}
+.quote-calculator__result small {
+  color: rgba(255, 255, 255, 0.6);
+}
+.quote-calculator__button {
+  width: 100%;
+  justify-content: center;
+}
+@media (max-width: 768px) {
+  .quote-calculator {
+    padding: 64px 0;
+  }
+  .quote-calculator .container {
+    grid-template-columns: 1fr;
+  }
+  .quote-calculator__content h2 {
+    font-size: 28px;
+  }
+  .quote-calculator__form {
+    padding: 22px;
+  }
+  .quote-calculator__result strong {
+    font-size: 24px;
+  }
+}
+
 .single-post {
   padding: 80px 0;
 }

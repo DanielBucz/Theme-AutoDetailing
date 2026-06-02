@@ -93,6 +93,7 @@ add_action('wp_enqueue_scripts', function () {
     $js_file_path     = $theme_dir . $js_relative_path;
     $js_version       = file_exists($js_file_path) ? filemtime($js_file_path) : '1.0.0';
 
+    
     wp_enqueue_script(
         'buczek-main-js',
         $theme_uri . $js_relative_path,
@@ -103,6 +104,23 @@ add_action('wp_enqueue_scripts', function () {
             'in_footer' => true     // Ładowanie przed tagiem zamykającym </body>
         ]
     );
+    if (is_front_page()) {
+    $quote_js_relative_path = '/assets/js/quote-calculator.js';
+    $quote_js_file_path     = $theme_dir . $quote_js_relative_path;
+
+    if (file_exists($quote_js_file_path)) {
+        wp_enqueue_script(
+            'buczek-quote-calculator-js',
+            $theme_uri . $quote_js_relative_path,
+            [],
+            filemtime($quote_js_file_path),
+            [
+                'strategy'  => 'defer',
+                'in_footer' => true,
+            ]
+        );
+    }
+}
 
     // Przekazywanie bezpiecznych zmiennych kontekstowych do skryptu JS (AJAX / Nonce)
     wp_localize_script('buczek-main-js', 'buczekThemeData', [

@@ -2,51 +2,61 @@
     <div class="container">
         <div class="quote-calculator__content">
             <p class="section-kicker">Szybka wycena</p>
-            <h2>Ile może kosztować detailing Twojego auta?</h2>
-            <p>Wybierz typ pojazdu, usługę i dodatki. Kalkulator poda orientacyjny zakres ceny.</p>
+            <h2>Ile może kosztować renowacja lamp?</h2>
+            <p>Wybierz stan reflektorów i zakres pracy. Kalkulator poda orientacyjny zakres ceny.</p>
         </div>
 
         <form class="quote-calculator__form" id="quoteCalculator">
             <label>
-                Typ pojazdu
-                <select name="carType" required>
-                    <option value="hatchback">Hatchback</option>
-                    <option value="sedan">Sedan</option>
-                    <option value="kombi">Kombi</option>
-                    <option value="suv">SUV</option>
-                    <option value="van">VAN</option>
+                Stan lamp
+                <select name="lampCondition" required>
+                    <option value="light">Lekko zmatowiałe</option>
+                    <option value="medium">Widocznie żółte lub mleczne</option>
+                    <option value="heavy">Mocno zniszczone / głębokie zmatowienie</option>
                 </select>
             </label>
 
             <label>
-                Usługa
-                <select name="service" required>
-                    <option value="wash">Mycie detailingowe</option>
-                    <option value="oneStep">Korekta lakieru 1-etapowa</option>
-                    <option value="twoStep">Korekta lakieru 2-etapowa</option>
-                    <option value="ceramic">Powłoka ceramiczna</option>
-                    <option value="interior">Detailing wnętrza</option>
+                Liczba lamp
+                <select name="lampCount" required>
+                    <option value="pair">Komplet przednich lamp</option>
+                    <option value="single">Jedna lampa</option>
                 </select>
             </label>
 
             <div class="quote-calculator__addons">
                 <span>Dodatki</span>
 
-                <label><input type="checkbox" name="addons" value="upholstery"> Pranie tapicerki</label>
-                <label><input type="checkbox" name="addons" value="leather"> Czyszczenie skóry</label>
-                <label><input type="checkbox" name="addons" value="glass"> Zabezpieczenie szyb</label>
-                <label><input type="checkbox" name="addons" value="wheels"> Powłoka na felgi</label>
+                <label><input type="checkbox" name="addons" value="uv"> Zabezpieczenie UV</label>
+                <label><input type="checkbox" name="addons" value="deep"> Dodatkowe szlifowanie głębokich zmatowień</label>
+                <label><input type="checkbox" name="addons" value="inspection"> Kontrola efektu świecenia</label>
+                <label><input type="checkbox" name="addons" value="travel"> Dojazd na terenie Lublina</label>
             </div>
 
             <div class="quote-calculator__result">
                 <span>Szacunkowa cena:</span>
-                <strong id="quoteResult">od 250 zł</strong>
-                <small>Dokładna wycena po oględzinach pojazdu.</small>
+                <strong id="quoteResult">od 120 zł</strong>
+                <small>Dokładna wycena po obejrzeniu lamp lub zdjęć.</small>
             </div>
 
-            <a class="btn btn--primary quote-calculator__button" href="#kontakt">
-                Umów bezpłatną konsultację
-            </a>
+            <div class="quote-calculator__lead">
+                <label>
+                    Imię
+                    <input type="text" name="clientName" placeholder="Jak mamy się zwracać?">
+                </label>
+
+                <label>
+                    Telefon
+                    <input type="tel" name="clientPhone" placeholder="Np. 500 600 700">
+                </label>
+
+                <input type="hidden" name="quoteValue" id="quoteValue">
+
+                <button class="btn btn--primary quote-calculator__button" type="submit">
+                    Wyślij zapytanie
+                </button>
+                <p class="quote-calculator__message" id="quoteMessage" aria-live="polite"></p>
+            </div>
         </form>
     </div>
 </section>

@@ -12,11 +12,11 @@ $query = new WP_Query([
             <p class="blog-preview__eyebrow">Porady</p>
 
             <h2 class="blog-preview__title">
-                Blog i wskazówki
+                Porady o lampach
             </h2>
 
             <p class="blog-preview__text">
-                Sprawdź jak dbać o auto i czego unikać, żeby lakier i wnętrze wyglądały jak nowe.
+                Sprawdź, kiedy warto polerować reflektory, jak dbać o klosze i dlaczego zabezpieczenie UV ma znaczenie.
             </p>
         </div>
 
@@ -45,7 +45,7 @@ $query = new WP_Query([
                     </p>
 
                     <a href="<?php the_permalink(); ?>" class="post-card__link">
-                        Czytaj więcej →
+                        Czytaj więcej
                     </a>
                 </div>
 

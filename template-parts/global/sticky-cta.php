@@ -7,6 +7,6 @@
     <a class="sticky-cta__button sticky-cta__button--instagram" href="https://instagram.com/buczek.poleruje"
         target="_blank" rel="noopener noreferrer">
         <span class="sticky-cta__icon">📩</span>
-        <span class="sticky-cta__text">Instagram</span>
+        <span class="sticky-cta__text">Wyślij zdjęcie</span>
     </a>
 </div>

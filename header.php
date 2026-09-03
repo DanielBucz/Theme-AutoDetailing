@@ -15,13 +15,9 @@
 
             <div class="site-header__logo">
                 <a href="<?php echo esc_url(home_url('/')); ?>" class="site-header__logo-link">
-                    <?php if (has_custom_logo()) : ?>
-                    <?php the_custom_logo(); ?>
-                    <?php else : ?>
-                    <span class="site-header__logo-text">
-                        <?php bloginfo('name'); ?>
-                    </span>
-                    <?php endif; ?>
+                    <img class="site-header__logo-image"
+                        src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/logo-buczek-poleruje.png'); ?>"
+                        alt="Buczek Poleruje">
                 </a>
             </div>
 
@@ -30,8 +26,8 @@
                     <li class="nav__item"><a class="nav__link is-active" href="#top">Start</a></li>
                     <li class="nav__item"><a class="nav__link" href="#realizacje">Efekty</a></li>
                     <li class="nav__item"><a class="nav__link" href="#uslugi">Usługi</a></li>
+                    <li class="nav__item"><a class="nav__link" href="#wycena">Wycena</a></li>
                     <li class="nav__item"><a class="nav__link" href="#opinie">Opinie</a></li>
-                    <li class="nav__item"><a class="nav__link" href="#blog">Blog</a></li>
                     <li class="nav__item"><a class="nav__link" href="#kontakt">Kontakt</a></li>
                 </ul>
             </nav>
@@ -67,8 +63,8 @@
                     <li><a class="mobile-menu__link" href="#top">Start</a></li>
                     <li><a class="mobile-menu__link" href="#uslugi">Usługi</a></li>
                     <li><a class="mobile-menu__link" href="#realizacje">Efekty</a></li>
+                    <li><a class="mobile-menu__link" href="#wycena">Wycena</a></li>
                     <li><a class="mobile-menu__link" href="#opinie">Opinie</a></li>
-                    <li><a class="mobile-menu__link" href="#blog">Blog</a></li>
                     <li><a class="mobile-menu__link" href="#kontakt">Kontakt</a></li>
                 </ul>
             </nav>

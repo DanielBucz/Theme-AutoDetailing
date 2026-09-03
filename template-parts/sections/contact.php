@@ -5,11 +5,12 @@
                 <p class="contact__eyebrow">Kontakt</p>
 
                 <h2 class="contact__title">
-                    Chcesz odświeżyć auto?
+                    Chcesz odzyskać przejrzyste lampy?
                 </h2>
 
                 <p class="contact__text">
-                    Napisz lub zadzwoń. Działam na terenie Lublina i pomogę dobrać usługę pod Twoje auto.
+                    Napisz lub zadzwoń. Działam na terenie Lublina i pomogę ocenić, czy Twoje reflektory nadają się do
+                    renowacji.
                 </p>
 
                 <div class="contact__list">
@@ -37,7 +38,7 @@
 
                     <a class="btn btn--ghost" href="https://instagram.com/buczek.poleruje" target="_blank"
                         rel="noopener noreferrer">
-                        Napisz na IG
+                        Wyślij zdjęcie lamp
                     </a>
                 </div>
             </div>

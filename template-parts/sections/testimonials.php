@@ -6,7 +6,7 @@ $testimonials = [
     ],
     [
         'name' => 'Właściciel BMW',
-        'text' => 'Auto odzyskało świeżość, a wnętrze po praniu wyglądało dużo lepiej niż się spodziewałem.',
+        'text' => 'Reflektory były żółte i matowe, a po usłudze przód auta wygląda dużo świeżej.',
     ],
     [
         'name' => 'Stały klient',
@@ -19,9 +19,9 @@ $testimonials = [
     <div class="container">
         <div class="testimonials__header">
             <p class="testimonials__eyebrow">Opinie</p>
-            <h2 class="testimonials__title">Dlaczego klienci wracają</h2>
+            <h2 class="testimonials__title">Dlaczego klienci polecają renowację lamp</h2>
             <p class="testimonials__text">
-                Liczy się efekt, kontakt i dbałość o detale. Właśnie na tym opiera się Buczek Poleruje.
+                Liczy się widoczny efekt, dobra komunikacja i dokładne zabezpieczenie kloszy po polerowaniu.
             </p>
         </div>
 

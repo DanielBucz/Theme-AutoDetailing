@@ -5,16 +5,16 @@ if (!defined('ABSPATH')) {
 }
 
 add_action('init', function () {
-    register_post_type('realizacje', [
+    register_post_type('uslugi', [
         'labels' => [
-            'name' => 'Realizacje',
-            'singular_name' => 'Realizacja',
+            'name' => 'Usługi',
+            'singular_name' => 'Usługa',
         ],
         'public' => true,
         'has_archive' => true,
-        'menu_icon' => 'dashicons-format-gallery',
+        'menu_icon' => 'dashicons-admin-tools',
         'supports' => ['title', 'editor', 'thumbnail'],
-        'rewrite' => ['slug' => 'realizacje'],
+        'rewrite' => ['slug' => 'uslugi'],
         'show_in_rest' => true,
     ]);
 });

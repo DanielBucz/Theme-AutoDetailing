@@ -5,11 +5,11 @@ $hero_title = function_exists('get_field') && get_field('hero_title')
 
 $hero_subtitle = function_exists('get_field') && get_field('hero_subtitle')
     ? get_field('hero_subtitle')
-    : 'Detailing samochodowy • Lublin';
+    : 'Renowacja i polerowanie lamp samochodowych • Lublin';
 
 $hero_text = function_exists('get_field') && get_field('hero_text')
     ? get_field('hero_text')
-    : 'Mycie • Pranie • Polerowanie';
+    : 'Zmatowiałe reflektory? Przywracam przejrzystość lamp, poprawiam wygląd auta i zabezpieczam klosze przed szybkim matowieniem.';
 
 $hero_button_text = function_exists('get_field') && get_field('hero_button_text')
     ? get_field('hero_button_text')
@@ -35,7 +35,7 @@ $hero_bg_url = !empty($hero_bg['url'])
 
         <div class="hero__container container">
             <div class="hero__content">
-                <p class="hero__eyebrow">Auto detailing</p>
+                <p class="hero__eyebrow">Polerowanie lamp</p>
 
                 <h1 class="hero__title">
                     <?php echo esc_html($hero_title); ?>

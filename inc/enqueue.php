@@ -109,16 +109,17 @@ add_action('wp_enqueue_scripts', function () {
     $quote_js_file_path     = $theme_dir . $quote_js_relative_path;
 
     if (file_exists($quote_js_file_path)) {
-        wp_enqueue_script(
-            'buczek-quote-calculator-js',
-            $theme_uri . $quote_js_relative_path,
-            [],
-            filemtime($quote_js_file_path),
-            [
-                'strategy'  => 'defer',
-                'in_footer' => true,
-            ]
-        );
+       wp_enqueue_script(
+    'buczek-quote-calculator-js',
+    $theme_uri . $quote_js_relative_path,
+    ['buczek-main-js'],
+    filemtime($quote_js_file_path),
+    [
+        'strategy'  => 'defer',
+        'in_footer' => true,
+    ]
+
+    );
     }
 }
 

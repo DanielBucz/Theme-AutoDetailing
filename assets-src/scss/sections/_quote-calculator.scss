@@ -124,7 +124,9 @@
   }
 
   input[type="text"],
-  input[type="tel"] {
+  input[type="tel"],
+  input[type="email"],
+  input[type="number"] {
     width: 100%;
     min-height: 52px;
     padding: 0 16px;

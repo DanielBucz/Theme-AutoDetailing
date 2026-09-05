@@ -50,6 +50,9 @@ function buczek_handle_quote_form() {
 
     $client_name  = isset($_POST['clientName']) ? sanitize_text_field(wp_unslash($_POST['clientName'])) : '';
     $client_phone = isset($_POST['clientPhone']) ? sanitize_text_field(wp_unslash($_POST['clientPhone'])) : '';
+    $client_email = isset($_POST['clientEmail']) ? sanitize_email(wp_unslash($_POST['clientEmail'])) : '';
+    $car_model    = isset($_POST['carModel']) ? sanitize_text_field(wp_unslash($_POST['carModel'])) : '';
+    $car_year     = isset($_POST['carYear']) ? absint(wp_unslash($_POST['carYear'])) : 0;
     $lamp_condition = isset($_POST['lampCondition']) ? sanitize_text_field(wp_unslash($_POST['lampCondition'])) : '';
     $lamp_count     = isset($_POST['lampCount']) ? sanitize_text_field(wp_unslash($_POST['lampCount'])) : '';
     $quote_value  = isset($_POST['quoteValue']) ? sanitize_text_field(wp_unslash($_POST['quoteValue'])) : '';
@@ -59,6 +62,12 @@ function buczek_handle_quote_form() {
     if (empty($client_name) || empty($client_phone)) {
         wp_send_json_error([
             'message' => 'Uzupełnij imię i telefon.',
+        ]);
+    }
+
+    if ($client_email !== '' && !is_email($client_email)) {
+        wp_send_json_error([
+            'message' => 'Podaj poprawny adres e-mail.',
         ]);
     }
 
@@ -93,12 +102,15 @@ function buczek_handle_quote_form() {
     $message  = "Nowe zapytanie o renowację lamp:\n\n";
     $message .= "Imię: {$client_name}\n";
     $message .= "Telefon: {$client_phone}\n";
+    $message .= "E-mail: " . ($client_email !== '' ? $client_email : 'Nie podano') . "\n";
+    $message .= "Auto: " . ($car_model !== '' ? $car_model : 'Nie podano') . "\n";
+    $message .= "Rok: " . ($car_year > 0 ? $car_year : 'Nie podano') . "\n";
     $message .= "Stan lamp: " . ($condition_labels[$lamp_condition] ?? $lamp_condition) . "\n";
     $message .= "Liczba lamp: " . ($lamp_count_labels[$lamp_count] ?? $lamp_count) . "\n";
     $message .= "Dodatki: " . (!empty($selected_addons) ? implode(', ', $selected_addons) : 'Brak') . "\n";
     $message .= "Informacja o cenie: {$quote_value}\n";
 
-    $sent = wp_mail($to, $subject, $message, buczek_get_mail_headers($client_name));
+    $sent = wp_mail($to, $subject, $message, buczek_get_mail_headers($client_name, $client_email));
 
     if (!$sent) {
         wp_send_json_error([

@@ -50,6 +50,21 @@
                     <input type="tel" name="clientPhone" placeholder="Np. 500 600 700" required>
                 </label>
 
+                <label>
+                    E-mail
+                    <input type="email" name="clientEmail" placeholder="Opcjonalnie">
+                </label>
+
+                <label>
+                    Auto
+                    <input type="text" name="carModel" placeholder="Np. Renault Laguna">
+                </label>
+
+                <label>
+                    Rok
+                    <input type="number" name="carYear" placeholder="Np. 2010" min="1950" max="2035">
+                </label>
+
                 <input type="hidden" name="quoteValue" id="quoteValue">
 
                 <button class="btn btn--primary quote-calculator__button" type="submit">

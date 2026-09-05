@@ -50,6 +50,32 @@ add_action('before_delete_post', function(int $post_id): void {
     buczek_clear_cpt_transients((string) get_post_type($post_id));
 });
 
+function buczek_get_mail_from_address(): string {
+    $host = wp_parse_url(home_url(), PHP_URL_HOST);
+
+    if (!is_string($host) || $host === '') {
+        return (string) get_option('admin_email');
+    }
+
+    $host = preg_replace('/^www\./', '', $host);
+    $email = sanitize_email('wordpress@' . $host);
+
+    return $email !== '' ? $email : (string) get_option('admin_email');
+}
+
+function buczek_get_mail_headers(string $reply_to_name = '', string $reply_to_email = ''): array {
+    $headers = [
+        'Content-Type: text/plain; charset=UTF-8',
+        'From: Buczek Poleruje <' . buczek_get_mail_from_address() . '>',
+    ];
+
+    if ($reply_to_email !== '' && is_email($reply_to_email)) {
+        $headers[] = 'Reply-To: ' . sanitize_text_field($reply_to_name) . ' <' . sanitize_email($reply_to_email) . '>';
+    }
+
+    return $headers;
+}
+
 /**
  * Natywna Obsługa Formularza Kontaktowego via AJAX
  */
@@ -88,10 +114,7 @@ function buczek_handle_contact_form(): void {
     $body .= "Telefon: " . (!empty($phone) ? $phone : 'Nie podano') . "\n\n";
     $body .= "Treść wiadomości:\n$message\n";
 
-    $headers = [
-        'Content-Type: text/plain; charset=UTF-8',
-        'Reply-To: ' . $name . ' <' . $email . '>'
-    ];
+    $headers = buczek_get_mail_headers($name, $email);
 
     if (wp_mail($to, $subject, $body, $headers)) {
         wp_send_json_success(['message' => 'Dziękujemy! Twoja wiadomość została wysłana pomyślnie.']);

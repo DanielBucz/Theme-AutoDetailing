@@ -42,12 +42,12 @@
             <div class="quote-calculator__lead">
                 <label>
                     Imię
-                    <input type="text" name="clientName" placeholder="Jak mamy się zwracać?">
+                    <input type="text" name="clientName" placeholder="Jak mamy się zwracać?" required>
                 </label>
 
                 <label>
                     Telefon
-                    <input type="tel" name="clientPhone" placeholder="Np. 500 600 700">
+                    <input type="tel" name="clientPhone" placeholder="Np. 500 600 700" required>
                 </label>
 
                 <input type="hidden" name="quoteValue" id="quoteValue">

@@ -98,7 +98,7 @@ function buczek_handle_quote_form() {
     $message .= "Dodatki: " . (!empty($selected_addons) ? implode(', ', $selected_addons) : 'Brak') . "\n";
     $message .= "Informacja o cenie: {$quote_value}\n";
 
-    $sent = wp_mail($to, $subject, $message);
+    $sent = wp_mail($to, $subject, $message, buczek_get_mail_headers($client_name));
 
     if (!$sent) {
         wp_send_json_error([

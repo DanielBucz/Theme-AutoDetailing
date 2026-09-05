@@ -49,7 +49,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       if (data.success) {
         form.reset();
-        calculate();
+        setQuoteValue();
       }
     } catch (error) {
       if (messageBox) {

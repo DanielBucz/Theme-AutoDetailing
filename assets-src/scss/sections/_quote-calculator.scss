@@ -14,12 +14,13 @@
 
   &__content {
     h2 {
-      font-size: 36px;
+      font-size: 32px;
       font-weight: 800;
       margin: 0 0 16px;
     }
 
     p {
+      font-size: 16px;
       color: rgba(variables.$color-text, 0.72);
       line-height: 1.7;
       margin: 0;
@@ -29,6 +30,7 @@
   .section-kicker {
     color: variables.$color-accent;
     font-weight: 800;
+    font-size: 13px;
     text-transform: uppercase;
     letter-spacing: 0.08em;
     margin-bottom: 12px;
@@ -41,14 +43,14 @@
     background: #161616;
     border: 1px solid rgba(#fff, 0.05);
     border-radius: 16px;
-    padding: 30px;
+    padding: 26px;
   }
 
   label,
   &__addons span {
     display: grid;
     gap: 14px;
-    font-size: 14px;
+    font-size: 13px;
     font-weight: 700;
   }
 
@@ -60,7 +62,7 @@
     border-radius: 12px;
     background: #0f0f0f;
     color: variables.$color-text;
-    font-size: 16px;
+    font-size: 15px;
     outline: none;
   }
 
@@ -106,7 +108,7 @@
 
     strong {
       color: variables.$color-accent;
-      font-size: 30px;
+      font-size: 26px;
       font-weight: 800;
     }
 
@@ -134,7 +136,7 @@
     border-radius: 12px;
     background: #0f0f0f;
     color: variables.$color-text;
-    font-size: 16px;
+    font-size: 15px;
     outline: none;
 
     &::placeholder {
@@ -160,7 +162,7 @@
     }
 
     &__content h2 {
-      font-size: 28px;
+      font-size: 24px;
     }
 
     &__form {
@@ -168,7 +170,7 @@
     }
 
     &__result strong {
-      font-size: 24px;
+      font-size: 22px;
     }
   }
 }

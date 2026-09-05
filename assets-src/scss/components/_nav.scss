@@ -3,7 +3,7 @@
 .nav {
   display: flex;
   align-items: center;
-  gap: 24px;
+  gap: 22px;
   margin: 0;
   padding: 0;
   list-style: none;
@@ -18,7 +18,7 @@
     align-items: center;
     min-height: 40px;
     color: rgba(variables.$color-text, 0.78);
-    font-size: 15px;
+    font-size: 14px;
     font-weight: 600;
     text-decoration: none;
     transition: color 0.2s ease;

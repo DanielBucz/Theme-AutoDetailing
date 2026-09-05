@@ -54,7 +54,7 @@
 
   &__eyebrow {
     margin: 0 0 12px;
-    font-size: 14px;
+    font-size: 13px;
     font-weight: 700;
     letter-spacing: 0.08em;
     text-transform: uppercase;
@@ -63,7 +63,7 @@
 
   &__title {
     margin: 0 0 16px;
-    font-size: clamp(40px, 7vw, 84px);
+    font-size: clamp(36px, 6.2vw, 74px);
     line-height: 0.95;
     font-weight: 800;
     text-wrap: balance;
@@ -71,14 +71,14 @@
 
   &__subtitle {
     margin: 0 0 12px;
-    font-size: clamp(20px, 3vw, 30px);
+    font-size: clamp(18px, 2.6vw, 27px);
     font-weight: 700;
     color: variables.$color-accent;
   }
 
   &__text {
     margin: 0;
-    font-size: 18px;
+    font-size: 17px;
     line-height: 1.6;
     color: rgba(variables.$color-text, 0.9);
   }
@@ -136,20 +136,20 @@
 
     &__title {
       margin-bottom: 12px;
-      font-size: clamp(38px, 12vw, 52px);
+      font-size: clamp(34px, 10.5vw, 46px);
       line-height: 0.95;
       max-width: 260px;
     }
 
     &__subtitle {
       margin-bottom: 10px;
-      font-size: 20px;
+      font-size: 18px;
       line-height: 1.15;
       max-width: 280px;
     }
 
     &__text {
-      font-size: 15px;
+      font-size: 14px;
       line-height: 1.55;
       max-width: 280px;
     }

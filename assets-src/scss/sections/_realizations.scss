@@ -19,7 +19,7 @@
 
   &__eyebrow {
     margin: 0 0 12px;
-    font-size: 14px;
+    font-size: 13px;
     font-weight: 700;
     letter-spacing: 0.08em;
     text-transform: uppercase;
@@ -28,7 +28,7 @@
 
   &__title {
     margin: 0 0 16px;
-    font-size: clamp(30px, 4vw, 52px);
+    font-size: clamp(28px, 3.5vw, 46px);
     line-height: 1.05;
     font-weight: 800;
     color: variables.$color-text;
@@ -37,7 +37,7 @@
 
   &__text {
     margin: 0;
-    font-size: 18px;
+    font-size: 16px;
     line-height: 1.7;
     color: rgba(variables.$color-text, 0.82);
   }
@@ -55,7 +55,7 @@
 
   &__cta-title {
     margin: 0 0 12px;
-    font-size: clamp(24px, 3vw, 36px);
+    font-size: clamp(22px, 2.6vw, 32px);
     line-height: 1.1;
     font-weight: 800;
     color: variables.$color-accent;
@@ -63,7 +63,7 @@
 
   &__cta-text {
     margin: 0;
-    font-size: 17px;
+    font-size: 16px;
     line-height: 1.7;
     color: rgba(variables.$color-text, 0.84);
   }
@@ -124,7 +124,7 @@
 
   &__featured-title {
     margin: 0 0 14px;
-    font-size: clamp(24px, 2.3vw, 34px);
+    font-size: clamp(22px, 2.1vw, 30px);
     line-height: 1.08;
     font-weight: 800;
     color: variables.$color-text;
@@ -133,7 +133,7 @@
 
   &__featured-text {
     margin: 0 0 22px;
-    font-size: 16px;
+    font-size: 15px;
     line-height: 1.65;
     color: rgba(variables.$color-text, 0.82);
   }
@@ -147,7 +147,7 @@
     padding: 64px 0;
 
     &__text {
-      font-size: 16px;
+      font-size: 15px;
     }
 
     &__cta {
@@ -182,11 +182,11 @@
     }
 
     &__featured-title {
-      font-size: 28px;
+      font-size: 24px;
     }
 
     &__featured-text {
-      font-size: 15px;
+      font-size: 14px;
     }
 
     &__featured-button {

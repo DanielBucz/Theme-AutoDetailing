@@ -93,20 +93,20 @@ $cta_button_url = function_exists('get_field') && get_field('realizations_cta_bu
         </div>
         <div class="realizations__featured">
             <div class="realizations__featured-media">
-                <img src="<?php echo get_template_directory_uri(); ?>/assets/img/realizacje/realizacja-poziomaa.jpg"
-                    alt="Odnowione reflektory po polerowaniu" loading="lazy">
+                <img src="<?php echo get_template_directory_uri(); ?>/assets/img/realizacje/renault-lampa-po.jpg"
+                    alt="Odnowiona lampa po polerowaniu" loading="lazy">
             </div>
 
             <div class="realizations__featured-content">
                 <p class="realizations__featured-eyebrow">Kolejna realizacja</p>
 
                 <h3 class="realizations__featured-title">
-                    Odzyskana przejrzystość reflektorów
+                    Czysty klosz i wyraźniejszy reflektor
                 </h3>
 
                 <p class="realizations__featured-text">
-                    Usunięcie mlecznego nalotu, wypolerowanie kloszy i zabezpieczenie lamp przed szybkim ponownym
-                    matowieniem.
+                    Przykład lampy po renowacji: szkło odzyskuje przejrzystość, a przód auta wygląda świeżej i
+                    schludniej.
                 </p>
 
                 <!-- <a href="#kontakt" class="btn btn--ghost realizations__featured-button">

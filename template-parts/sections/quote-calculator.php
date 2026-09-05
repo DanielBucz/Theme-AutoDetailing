@@ -2,8 +2,8 @@
     <div class="container">
         <div class="quote-calculator__content">
             <p class="section-kicker">Szybka wycena</p>
-            <h2>Ile może kosztować renowacja lamp?</h2>
-            <p>Wybierz stan reflektorów i zakres pracy. Kalkulator poda orientacyjny zakres ceny.</p>
+            <h2>Zapytaj o wycenę renowacji lamp</h2>
+            <p>Wybierz stan reflektorów i zakres pracy. Cena startuje od 120 zł, a dokładną wycenę przygotuję po obejrzeniu lamp lub zdjęć.</p>
         </div>
 
         <form class="quote-calculator__form" id="quoteCalculator">
@@ -34,9 +34,9 @@
             </div>
 
             <div class="quote-calculator__result">
-                <span>Szacunkowa cena:</span>
+                <span>Cena startowa:</span>
                 <strong id="quoteResult">od 120 zł</strong>
-                <small>Dokładna wycena po obejrzeniu lamp lub zdjęć.</small>
+                <small>Zapytaj o wycenę dopasowaną do stanu Twoich lamp.</small>
             </div>
 
             <div class="quote-calculator__lead">
@@ -53,7 +53,7 @@
                 <input type="hidden" name="quoteValue" id="quoteValue">
 
                 <button class="btn btn--primary quote-calculator__button" type="submit">
-                    Wyślij zapytanie
+                    Zapytaj o wycenę
                 </button>
                 <p class="quote-calculator__message" id="quoteMessage" aria-live="polite"></p>
             </div>

@@ -96,7 +96,7 @@ function buczek_handle_quote_form() {
     $message .= "Stan lamp: " . ($condition_labels[$lamp_condition] ?? $lamp_condition) . "\n";
     $message .= "Liczba lamp: " . ($lamp_count_labels[$lamp_count] ?? $lamp_count) . "\n";
     $message .= "Dodatki: " . (!empty($selected_addons) ? implode(', ', $selected_addons) : 'Brak') . "\n";
-    $message .= "Wycena: {$quote_value}\n";
+    $message .= "Informacja o cenie: {$quote_value}\n";
 
     $sent = wp_mail($to, $subject, $message);
 

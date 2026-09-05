@@ -6,57 +6,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
   if (!form || !result) return;
 
-  const conditionPrices = {
-    light: 120,
-    medium: 180,
-    heavy: 260,
-  };
-
-  const lampCountMultipliers = {
-    single: 0.65,
-    pair: 1,
-  };
-
-  const addonPrices = {
-    uv: 50,
-    deep: 80,
-    inspection: 30,
-    travel: 40,
-  };
-
-  const formatPrice = (price) =>
-    new Intl.NumberFormat("pl-PL", {
-      style: "currency",
-      currency: "PLN",
-      maximumFractionDigits: 0,
-    }).format(price);
-
-  const calculate = () => {
-    const data = new FormData(form);
-    const lampCondition = data.get("lampCondition");
-    const lampCount = data.get("lampCount");
-    const addons = data.getAll("addons");
-
-    let price =
-      conditionPrices[lampCondition] * lampCountMultipliers[lampCount];
-
-    addons.forEach((addon) => {
-      price += addonPrices[addon] || 0;
-    });
-
-    const min = Math.round(price / 10) * 10;
-    const max = min + 80;
-    const priceText = `${formatPrice(min)} - ${formatPrice(max)}`;
-
-    result.textContent = priceText;
-
+  const setQuoteValue = () => {
+    result.textContent = "od 120 zł";
     if (quoteValue) {
-      quoteValue.value = priceText;
+      quoteValue.value = "Prośba o indywidualną wycenę - cena od 120 zł";
     }
   };
 
-  form.addEventListener("change", calculate);
-  calculate();
+  setQuoteValue();
 
   form.addEventListener("submit", async (event) => {
     event.preventDefault();
@@ -101,7 +58,7 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     } finally {
       submitButton.disabled = false;
-      submitButton.textContent = "Wyślij zapytanie";
+      submitButton.textContent = "Zapytaj o wycenę";
     }
   });
 });

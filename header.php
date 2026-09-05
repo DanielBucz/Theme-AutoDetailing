@@ -27,7 +27,6 @@
                     <li class="nav__item"><a class="nav__link" href="#realizacje">Efekty</a></li>
                     <li class="nav__item"><a class="nav__link" href="#uslugi">Usługi</a></li>
                     <li class="nav__item"><a class="nav__link" href="#wycena">Wycena</a></li>
-                    <li class="nav__item"><a class="nav__link" href="#opinie">Opinie</a></li>
                     <li class="nav__item"><a class="nav__link" href="#kontakt">Kontakt</a></li>
                 </ul>
             </nav>
@@ -64,7 +63,6 @@
                     <li><a class="mobile-menu__link" href="#uslugi">Usługi</a></li>
                     <li><a class="mobile-menu__link" href="#realizacje">Efekty</a></li>
                     <li><a class="mobile-menu__link" href="#wycena">Wycena</a></li>
-                    <li><a class="mobile-menu__link" href="#opinie">Opinie</a></li>
                     <li><a class="mobile-menu__link" href="#kontakt">Kontakt</a></li>
                 </ul>
             </nav>

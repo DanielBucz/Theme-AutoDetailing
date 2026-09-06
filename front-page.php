@@ -2,6 +2,7 @@
 
 <main class="site-main">
     <?php get_template_part('template-parts/sections/hero'); ?>
+    <?php get_template_part('template-parts/sections/seo-intro'); ?>
     <?php get_template_part('template-parts/sections/realizacje'); ?>
     <?php get_template_part('template-parts/sections/services'); ?>
     <?php get_template_part('template-parts/sections/quote-calculator'); ?>

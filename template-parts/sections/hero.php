@@ -1,7 +1,7 @@
 <?php
 $hero_title = function_exists('get_field') && get_field('hero_title')
     ? get_field('hero_title')
-    : 'Polerowanie lamp w Lublinie';
+    : 'Buczek Poleruje';
 
 $hero_subtitle = function_exists('get_field') && get_field('hero_subtitle')
     ? get_field('hero_subtitle')
@@ -23,13 +23,17 @@ $hero_bg = function_exists('get_field') ? get_field('hero_background_image') : n
 $hero_bg_url = !empty($hero_bg['url'])
     ? $hero_bg['url']
     : get_template_directory_uri() . '/assets/img/hero/hero-default.jpg';
+
+$hero_bg_alt = !empty($hero_bg['alt'])
+    ? $hero_bg['alt']
+    : $hero_title;
 ?>
 
 <section class="hero" id="top">
     <div class="hero-container">
         <div class="hero__bg">
             <img class="hero__bg-image" src="<?php echo esc_url($hero_bg_url); ?>"
-                alt="<?php echo esc_attr('Polerowanie lamp Lublin - Buczek Poleruje'); ?>">
+                alt="<?php echo esc_attr($hero_bg_alt); ?>">
             <div class="hero__overlay"></div>
         </div>
 

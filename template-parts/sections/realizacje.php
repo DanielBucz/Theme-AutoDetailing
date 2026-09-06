@@ -1,11 +1,11 @@
 <?php
 $section_title = function_exists('get_field') && get_field('realizations_title')
     ? get_field('realizations_title')
-    : 'Polerowanie lamp Lublin - efekty renowacji';
+    : 'Efekty renowacji lamp';
 
 $section_text = function_exists('get_field') && get_field('realizations_text')
     ? get_field('realizations_text')
-    : 'Zobacz różnicę przed i po. Polerowanie lamp w Lublinie przywraca przejrzystość reflektorów i poprawia wygląd auta bez wymiany kloszy.';
+    : 'Zobacz różnicę przed i po. To właśnie efekt, który najbardziej sprzedaje usługę.';
 
 $before_image = function_exists('get_field') ? get_field('before_image') : null;
 $after_image  = function_exists('get_field') ? get_field('after_image') : null;
@@ -17,6 +17,14 @@ $before_url = !empty($before_image['url'])
 $after_url = !empty($after_image['url'])
     ? $after_image['url']
     : get_template_directory_uri() . '/assets/img/realizacje/lampa-po.jpg';
+
+$before_alt = !empty($before_image['alt'])
+    ? $before_image['alt']
+    : 'Lampa przed renowacją';
+
+$after_alt = !empty($after_image['alt'])
+    ? $after_image['alt']
+    : 'Lampa po renowacji';
 
 $cta_title = function_exists('get_field') && get_field('realizations_cta_title')
     ? get_field('realizations_cta_title')
@@ -53,7 +61,7 @@ $cta_button_url = function_exists('get_field') && get_field('realizations_cta_bu
             <article class="before-after__item before-after__item--before">
                 <div class="before-after__media">
                     <img class="before-after__image" src="<?php echo esc_url($before_url); ?>"
-                        alt="Polerowanie lamp Lublin - reflektor przed renowacją" loading="lazy">
+                        alt="<?php echo esc_attr($before_alt); ?>" loading="lazy">
                     <span class="before-after__badge before-after__badge--before">
                         Przed
                     </span>
@@ -62,7 +70,7 @@ $cta_button_url = function_exists('get_field') && get_field('realizations_cta_bu
 
             <article class="before-after__item before-after__item--after">
                 <div class="before-after__media">
-                    <img class="before-after__image" src="<?php echo esc_url($after_url); ?>" alt="Polerowanie lamp Lublin - reflektor po renowacji"
+                    <img class="before-after__image" src="<?php echo esc_url($after_url); ?>" alt="<?php echo esc_attr($after_alt); ?>"
                         loading="lazy">
                     <span class="before-after__badge before-after__badge--after">
                         Po
@@ -94,7 +102,7 @@ $cta_button_url = function_exists('get_field') && get_field('realizations_cta_bu
         <div class="realizations__featured">
             <div class="realizations__featured-media">
                 <img src="<?php echo get_template_directory_uri(); ?>/assets/img/realizacje/renault-lampa-po.jpg"
-                    alt="Polerowanie lamp Lublin - odnowiona lampa po renowacji" loading="lazy">
+                    alt="Odnowiona lampa po renowacji" loading="lazy">
             </div>
 
             <div class="realizations__featured-content">

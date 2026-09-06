@@ -2,7 +2,7 @@
     <div class="container">
 
         <h2 class="services__title">
-            Polerowanie lamp Lublin
+            Renowacja lamp
         </h2>
 
         <div class="services__grid">

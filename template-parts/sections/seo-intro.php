@@ -3,9 +3,16 @@ $seo_intro_enabled = function_exists('get_field') ? get_field('seo_intro_enabled
 $seo_intro_title = function_exists('get_field') ? get_field('seo_intro_title') : '';
 $seo_intro_text = function_exists('get_field') ? get_field('seo_intro_text') : '';
 
-if (!$seo_intro_enabled || empty($seo_intro_text)) {
-    return;
-}
+$default_title = 'Polerowanie lamp Lublin';
+$default_text = 'Buczek Poleruje wykonuje polerowanie lamp w Lublinie dla kierowców, którzy chcą poprawić wygląd auta i widoczność po zmroku bez wymiany reflektorów. Renowacja zmatowiałych kloszy pomaga usunąć żółty nalot, mleczne przebarwienia i drobne ślady zużycia, a na koniec lampy są zabezpieczane przed ponownym matowieniem. Jeśli nie wiesz, czy Twoje reflektory nadają się do odnowienia, wyślij zdjęcie auta i poproś o wycenę.';
+
+$seo_intro_title = $seo_intro_enabled && !empty($seo_intro_title)
+    ? $seo_intro_title
+    : $default_title;
+
+$seo_intro_text = $seo_intro_enabled && !empty($seo_intro_text)
+    ? $seo_intro_text
+    : $default_text;
 ?>
 
 <section class="seo-intro" id="polerowanie-lamp-lublin">

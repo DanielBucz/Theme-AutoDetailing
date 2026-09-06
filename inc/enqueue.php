@@ -124,8 +124,66 @@ add_action('wp_enqueue_scripts', function () {
 }
 
     // Przekazywanie bezpiecznych zmiennych kontekstowych do skryptu JS (AJAX / Nonce)
-    wp_localize_script('buczek-main-js', 'buczekThemeData', [
-        'ajaxUrl' => admin_url('admin-ajax.php'),
-        'security' => wp_create_nonce('buczek_contact_nonce')
-    ]);
+    if (is_front_page() || is_page_template('templates/page-kontakt.php')) {
+        wp_localize_script('buczek-main-js', 'buczekThemeData', [
+            'ajaxUrl' => admin_url('admin-ajax.php'),
+            'security' => wp_create_nonce('buczek_contact_nonce')
+        ]);
+    }
+});
+
+add_action('wp_head', static function (): void {
+    if (!is_front_page()) {
+        return;
+    }
+
+    $hero_bg = function_exists('get_field') ? get_field('hero_background_image') : null;
+    $hero_bg_url = !empty($hero_bg['url'])
+        ? $hero_bg['url']
+        : get_template_directory_uri() . '/assets/img/hero/hero-default.jpg';
+
+    $attributes = [
+        'rel'           => 'preload',
+        'as'            => 'image',
+        'href'          => $hero_bg_url,
+        'fetchpriority' => 'high',
+    ];
+
+    if (!empty($hero_bg['ID'])) {
+        $srcset = wp_get_attachment_image_srcset((int) $hero_bg['ID'], 'full');
+
+        if ($srcset) {
+            $attributes['imagesrcset'] = $srcset;
+            $attributes['imagesizes'] = '(max-width: 768px) 100vw, 1400px';
+        }
+    }
+
+    $markup = '<link';
+
+    foreach ($attributes as $name => $value) {
+        $markup .= ' ' . esc_attr($name) . '="' . esc_attr((string) $value) . '"';
+    }
+
+    echo $markup . '>' . "\n";
+}, 1);
+
+add_action('wp_enqueue_scripts', static function (): void {
+    if (!is_admin()) {
+        wp_dequeue_style('wp-block-library');
+        wp_dequeue_style('global-styles');
+        wp_dequeue_style('classic-theme-styles');
+    }
+}, 20);
+
+add_action('init', static function (): void {
+    remove_action('wp_head', 'print_emoji_detection_script', 7);
+    remove_action('wp_print_styles', 'print_emoji_styles');
+    remove_action('wp_head', 'wp_oembed_add_discovery_links');
+    remove_action('wp_head', 'wp_oembed_add_host_js');
+});
+
+add_action('wp_footer', static function (): void {
+    if (!is_singular()) {
+        wp_deregister_script('wp-embed');
+    }
 });

@@ -60,6 +60,8 @@ get_header(); ?>
                                             the_post_thumbnail('medium_large', [
                                                 'class' => 'img-responsive',
                                                 'loading' => 'lazy',
+                                                'decoding' => 'async',
+                                                'sizes' => '(max-width: 768px) 100vw, 360px',
                                                 'alt'   => esc_attr(get_the_title())
                                             ]); 
                                             ?>

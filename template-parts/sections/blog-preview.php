@@ -29,7 +29,7 @@ $query = new WP_Query([
 
                 <a href="<?php the_permalink(); ?>" class="post-card__image">
                     <?php if (has_post_thumbnail()) : ?>
-                    <?php the_post_thumbnail('medium_large'); ?>
+                    <?php the_post_thumbnail('medium_large', ['loading' => 'lazy', 'decoding' => 'async', 'sizes' => '(max-width: 768px) 100vw, 360px']); ?>
                     <?php endif; ?>
                 </a>
 

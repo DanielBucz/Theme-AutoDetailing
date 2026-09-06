@@ -19,7 +19,7 @@
 
             <?php if (has_post_thumbnail()) : ?>
             <div class="single-post__image">
-                <?php the_post_thumbnail('large'); ?>
+                <?php the_post_thumbnail('large', ['loading' => 'eager', 'fetchpriority' => 'high', 'decoding' => 'async', 'sizes' => '(max-width: 768px) 100vw, 960px']); ?>
             </div>
             <?php endif; ?>
 

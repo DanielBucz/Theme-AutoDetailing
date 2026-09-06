@@ -27,6 +27,24 @@ function buczek_clear_cpt_transients(string $post_type): void {
             delete_transient($transient_name);
         }
     }
+
+    if ($post_type === 'realizacje') {
+        buczek_clear_realizacje_archive_page_transients();
+    }
+}
+
+function buczek_clear_realizacje_archive_page_transients(): void {
+    global $wpdb;
+
+    $like = $wpdb->esc_like('_transient_buczek_realizacje_archive_page_') . '%';
+
+    $wpdb->query(
+        $wpdb->prepare(
+            "DELETE FROM {$wpdb->options} WHERE option_name LIKE %s OR option_name LIKE %s",
+            $like,
+            str_replace('_transient_', '_transient_timeout_', $like)
+        )
+    );
 }
 
 /**

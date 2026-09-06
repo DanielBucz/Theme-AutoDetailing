@@ -17,7 +17,7 @@
                 <a href="<?php echo esc_url(home_url('/')); ?>" class="site-header__logo-link">
                     <img class="site-header__logo-image"
                         src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/logo-buczek-poleruje.png'); ?>"
-                        alt="Buczek Poleruje">
+                        alt="Buczek Poleruje" width="380" height="158" decoding="async">
                 </a>
             </div>
 

@@ -1,7 +1,7 @@
 <?php
 $hero_title = function_exists('get_field') && get_field('hero_title')
     ? get_field('hero_title')
-    : 'Buczek Poleruje';
+    : 'Polerowanie lamp w Lublinie';
 
 $hero_subtitle = function_exists('get_field') && get_field('hero_subtitle')
     ? get_field('hero_subtitle')
@@ -29,7 +29,7 @@ $hero_bg_url = !empty($hero_bg['url'])
     <div class="hero-container">
         <div class="hero__bg">
             <img class="hero__bg-image" src="<?php echo esc_url($hero_bg_url); ?>"
-                alt="<?php echo esc_attr($hero_title); ?>">
+                alt="<?php echo esc_attr('Polerowanie lamp Lublin - Buczek Poleruje'); ?>">
             <div class="hero__overlay"></div>
         </div>
 

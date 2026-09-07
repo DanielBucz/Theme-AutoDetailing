@@ -12,11 +12,11 @@ $after_image  = function_exists('get_field') ? get_field('after_image') : null;
 
 $before_url = !empty($before_image['url'])
     ? $before_image['url']
-    : get_template_directory_uri() . '/assets/img/realizacje/lampa-przed.jpg';
+    : get_template_directory_uri() . '/assets/img/realizacje/lampa-przed.webp';
 
 $after_url = !empty($after_image['url'])
     ? $after_image['url']
-    : get_template_directory_uri() . '/assets/img/realizacje/lampa-po.jpg';
+    : get_template_directory_uri() . '/assets/img/realizacje/lampa-po.webp';
 
 $before_alt = !empty($before_image['alt'])
     ? $before_image['alt']
@@ -101,7 +101,7 @@ $cta_button_url = function_exists('get_field') && get_field('realizations_cta_bu
         </div>
         <div class="realizations__featured">
             <div class="realizations__featured-media">
-                <img src="<?php echo get_template_directory_uri(); ?>/assets/img/realizacje/renault-lampa-po.jpg"
+                <img src="<?php echo get_template_directory_uri(); ?>/assets/img/realizacje/renault-lampa-po.webp"
                     alt="Odnowiona lampa po renowacji" loading="lazy">
             </div>
 

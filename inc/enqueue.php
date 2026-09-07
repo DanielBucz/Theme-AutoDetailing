@@ -140,7 +140,7 @@ add_action('wp_head', static function (): void {
     $hero_bg = function_exists('get_field') ? get_field('hero_background_image') : null;
     $hero_bg_url = !empty($hero_bg['url'])
         ? $hero_bg['url']
-        : get_template_directory_uri() . '/assets/img/hero/hero-default.jpg';
+        : get_template_directory_uri() . '/assets/img/hero/hero-default.webp';
 
     $attributes = [
         'rel'           => 'preload',
